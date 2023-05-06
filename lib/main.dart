@@ -2,6 +2,8 @@ import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/tiled/builder/tiled_world_builder.dart';
 import 'package:flutter/material.dart';
 
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,8 +30,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const BonfireWidget(
-      map: TiledWorldBuilder(path)
+    return BonfireWidget(
+      map: WorldMapByTiled('map/island.json'),
+      
+      
     );
   }
 }
