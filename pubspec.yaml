@@ -31,8 +31,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   bonfire: ^2.12.2
+  google_sign_in: ^6.1.0
+  firebase_auth: ^4.5.0
+  firebase_core: ^2.11.0
+  firebase_database: any
 
 dev_dependencies:
   flutter_test:

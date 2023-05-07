@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1022245254904",
+    "project_id": "bd-tamarutacagame",
+    "storage_bucket": "bd-tamarutacagame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022245254904:android:2d8c9743fdb40e42e26d0d",
+        "android_client_info": {
+          "package_name": "com.example.flameteste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022245254904-o1vcmra469gec3elici25b20m7oudq0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS7X7HB5Fu0OGA_IKaCf3OgOh1YQcgPaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022245254904-3aeq5stlqrv9lor4hi5emhlp2qpcjcpk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1022245254904-m4n10kh9krcnjicfvbq03icl51ok1mcl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flameteste"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
