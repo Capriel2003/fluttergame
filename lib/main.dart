@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:bonfire/tiled/builder/tiled_world_builder.dart';
+import 'package:flameteste/Home/homePage.dart';
 import 'package:flameteste/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         // Defina a rota do jogo
         '/auth': (context) => const AuthScreen(),
-        '/home': (context) => const MyHomePage(),
+        '/home': (context) => const HomePage(),
+        '/game': (context) => const MyHomePage(),
       },
     );
   }
