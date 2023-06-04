@@ -42,8 +42,8 @@ class MyApp extends StatelessWidget {
         // Defina a rota da splash screen
         '/': (context) => SplashScreen(),
         // Defina a rota do jogo
-        // '/auth': (context) => const AuthScreen(),
-        '/auth': (context) => const MyHomePage(),
+        '/auth': (context) => const AuthScreen(),
+        '/home': (context) => const MyHomePage(),
       },
     );
   }
