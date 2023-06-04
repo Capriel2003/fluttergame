@@ -60,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen>
                     SizedBox(height: 16),
                     Text(
                       'Loading' + '.' * _animation.value.toInt(),
-                      style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold, shadows: [
+                      style: TextStyle(fontSize: 30, fontFamily: 'PC Senior', color: Colors.white, fontWeight: FontWeight.bold, shadows: [
                         Shadow(
                           blurRadius: 7.0,
                           color: Colors.black,
