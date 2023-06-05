@@ -3,6 +3,7 @@ import 'package:bonfire/bonfire.dart';
 
 import 'homePage.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateRoute: RoutesAdministracao.onGenerateRoute,
+      
+      title: 'Tamarutaca',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
     );
   }
 }
