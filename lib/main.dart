@@ -1,13 +1,12 @@
-import 'package:bonfire/bonfire.dart';
-import 'package:bonfire/tiled/builder/tiled_world_builder.dart';
+
 import 'package:flameteste/Home/homePage.dart';
 import 'package:flameteste/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 
 import 'authScreen.dart';
 import 'gamePage.dart';
@@ -23,12 +22,17 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
+  WidgetsFlutterBinding.ensureInitialized();
+
 
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key});
+
+
+
 
   @override
   Widget build(BuildContext context) {

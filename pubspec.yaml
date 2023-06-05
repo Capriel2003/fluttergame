@@ -36,7 +36,7 @@ dependencies:
   firebase_database: any
 
   #Google Sign in
-  google_sign_in: ^6.1.0
+  google_sign_in: any
   firebase_auth: ^4.5.0
 
   #Google Icon

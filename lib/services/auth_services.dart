@@ -17,7 +17,8 @@ class AuthService {
   }
 
   Widget getProfileImage() {
-    if (_firebaseAuth.currentUser?.photoURL != null) { // Usa o operador ?
+    if (_firebaseAuth.currentUser?.photoURL != null) {
+      // Usa o operador ?
       return Image.network(
         _firebaseAuth.currentUser!.photoURL!,
         height: 30,

@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
                 // Botão de jogar
                 ElevatedButton.icon(
                   onPressed: () async {
-                    
+                    Navigator.pushReplacementNamed(context, '/game');
                   },
                   icon: Icon(Icons.arrow_forward),
                   label: Text('Jogar',
@@ -129,7 +129,7 @@ class HomePage extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding:
-                        EdgeInsets.all(20), // Espaçamento entre a borda e os botões
+                        EdgeInsets.all(10), // Espaçamento entre a borda e os botões
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                             // Navegar para a página de opções
                           },
                           icon:
-                              Icon(Icons.settings, color: Colors.white, size: 50),
+                              Icon(Icons.settings, color: Colors.white, size: 30),
                           color: Color(0xFF3567BD),
                         ),
                         // Foto do usuário
@@ -159,11 +159,11 @@ class HomePage extends StatelessWidget {
                                   Navigator.pushReplacementNamed(context, '/auth');
                                 },
                                 child: Icon(Icons.person,
-                                    color: Colors.white, size: 50),
-                              ); // Fecha o GestureDetector com um )
+                                    color: Colors.white, size: 30),
+                              );
                             }
                           },
-                        ), // Fecha o child com um ,
+                        ),
                       ],
                     ),
                   ),
