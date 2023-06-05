@@ -3,9 +3,17 @@ import 'package:bonfire/bonfire.dart';
 
 import 'homePage.dart';
 
-
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Tamarutaca',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +22,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       title: 'Tamarutaca',
       theme: ThemeData(
         primarySwatch: Colors.blue,

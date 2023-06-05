@@ -1,9 +1,9 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flameteste/orc.dart';
 import 'package:flutter/material.dart';
-
 import 'player.dart';
 
-const double tileSize = 60;
+const double tileSize = 40;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,10 +17,13 @@ class HomePage extends StatelessWidget {
       ),
       map: WorldMapByTiled(
         'map/island.json',
+        objectsBuilder: {
+          'orc': (properties) => Orc(properties.position),
+        },
         forceTileSize: Vector2.all(tileSize),
       ),
       player: GameHero(Vector2(18 * tileSize, 14 * tileSize)),
-      showCollisionArea: false,
+      showCollisionArea: true,
     );
   }
 }
