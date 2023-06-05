@@ -184,17 +184,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":3,
-                 "name":"orc",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":96,
-                 "y":96
-                }, 
-                {
-                 "height":0,
                  "id":6,
                  "name":"orc",
                  "rotation":0,
