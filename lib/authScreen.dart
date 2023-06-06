@@ -12,7 +12,7 @@ class AuthScreen extends StatelessWidget {
         title: Text('Autenticação do Google'),
       ),
       body: Container(
-        color: Color.fromRGBO(1, 135, 91, 0.308),
+        color: Color.fromRGBO(41, 205, 0, 0.512),
         margin: EdgeInsets.all(0.0),
         child: Center(
           child: Column(
@@ -22,17 +22,24 @@ class AuthScreen extends StatelessWidget {
               const Column(  
                 //  style: TextStyle(fontSize: 25.0),
                 children: [
-                  Text('Bem-Vindos ao jogo da Tamarutaca',
+                    Text('Tamarutaca Game',
                     style:TextStyle(
                       fontSize: 20.0,
-                      // fontFamily: 
+                      fontFamily: 'PC Senior', 
                     ),
                   ),
-                  Text('faça login e divirta-se!',
-                    style:TextStyle(
-                      fontSize: 20.0,
-                    ),
-                  ), //colocar mais pra cima, olhar fonte e tamanho da letra também
+                  // Text('Bem-Vindos ao jogo da Tamarutaca',
+                  //   style:TextStyle(
+                  //     fontSize: 12.0,
+                  //     fontFamily: 'PC Senior', 
+                  //   ),
+                  // ),
+                  // Text('faça login e divirta-se!',
+                  //   style:TextStyle(
+                  //     fontSize: 12.0,
+                  //     fontFamily: 'PC Senior',
+                  //   ),
+                  // ), //colocar mais pra cima, olhar fonte e tamanho da letra também
                 ],
               ),
               Padding(
