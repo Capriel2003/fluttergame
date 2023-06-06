@@ -12,40 +12,37 @@ class AuthScreen extends StatelessWidget {
         title: Text('Autenticação do Google'),
       ),
       body: Container(
-        color: Color.fromRGBO(1, 135, 91, 0.308),
-        margin: EdgeInsets.all(0.0),
+        margin: EdgeInsets.only(top: 30, right: 60, bottom: 30, left: 60),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          border: Border.all(width: 1, color: Colors.black),
+          borderRadius: BorderRadius.circular(50),
+          color: Color.fromRGBO(1, 135, 91, 0.308),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(1),
+              spreadRadius: 12,
+              blurRadius: 8,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+          
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-
-            children: [//foto tamarutaca
+            children: [
+              Image.asset('assets/images/logo.png'),
               const Column(  
-                //  style: TextStyle(fontSize: 25.0),
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Bem-Vindos ao jogo da Tamarutaca',
-                    style:TextStyle(
-                      fontSize: 20.0,
-                      // fontFamily: 
-                    ),
-                  ),
-                  Text('faça login e divirta-se!',
-                    style:TextStyle(
-                      fontSize: 20.0,
-                    ),
-                  ), //colocar mais pra cima, olhar fonte e tamanho da letra também
+                  Text('Bem-Vindos ao jogo da Tamarutaca'),
+                  Text('faça login e divirta-se!'), //colocar mais pra cima, olhar fonte e tamanho da letra também
+                  // TextStyle(fontSize: 25.0),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 20.0, top: 0.0),
-                child: Row(
-                mainAxisAlignment: MainAxisAlignment.center, //tentar subir e diminuir a tamarutaca
-                  children: [
-                    Image.asset('assets/images/logo.png'), 
-                  ],
-                ),
-              ),
             
-              //padding: EdgeInsets.only(top: 20.0, bottom: 10.0), //tentand o fazer o espaçamento entre os textos e o login
+
               GoogleSignInButton(),
               SizedBox(height: 25),
               Row(
