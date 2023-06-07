@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/homePage.dart';
 import 'package:flameteste/orc_sprite_sheet.dart';
 
 class Orc extends SimpleEnemy with ObjectCollision {
+  bool canMove = true;
+
   Orc(Vector2 position)
       : super(
           position: position,
@@ -24,10 +28,54 @@ class Orc extends SimpleEnemy with ObjectCollision {
 
   @override
   void update(double dt) {
-    seeAndMoveToPlayer(
-      closePlayer: (player) {},
-      radiusVision: 3 * tileSize,
-    );
+    if (canMove) {
+      seeAndMoveToPlayer(
+        closePlayer: (player) {},
+        radiusVision: 3 * tileSize,
+      );
+    }
+
     super.update(dt);
+  }
+
+  @override
+  void render(Canvas canvas) {
+    drawDefaultLifeBar(
+      canvas,
+      borderWidth: 2,
+      height: 5,
+      align: Offset(0, -5),
+    );
+
+    super.render(canvas);
+  }
+
+  @override
+  void die() {
+    removeFromParent();
+    super.die();
+  }
+
+  @override
+  void receiveDamage(AttackFromEnum attacker, double damage, identify) {
+    canMove = false;
+    if (lastDirectionHorizontal == Direction.left) {
+      animation?.playOnce(
+        OrcSpriteSheet.receiveDamageLeft,
+        runToTheEnd: true,
+        onFinish: () {
+          canMove = true;
+        },
+      );
+    } else {
+      animation?.playOnce(
+        OrcSpriteSheet.receiveDamageRight,
+        runToTheEnd: true,
+        onFinish: () {
+          canMove = true;
+        },
+      );
+    }
+    super.receiveDamage(attacker, damage, identify);
   }
 }

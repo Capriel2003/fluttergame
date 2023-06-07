@@ -13,8 +13,16 @@ class HomePage extends StatelessWidget {
     return BonfireWidget(
       autofocus: true,
       joystick: Joystick(
-        directional: JoystickDirectional(),
-      ),
+          directional: JoystickDirectional(
+            color: Colors.red,
+          ),
+          actions: [
+            JoystickAction(
+              actionId: 1,
+              color: Colors.red,
+              margin: EdgeInsets.all(50),
+            ),
+          ]),
       map: WorldMapByTiled(
         'map/island.json',
         objectsBuilder: {
@@ -23,7 +31,7 @@ class HomePage extends StatelessWidget {
         forceTileSize: Vector2.all(tileSize),
       ),
       player: GameHero(Vector2(18 * tileSize, 14 * tileSize)),
-      showCollisionArea: true,
+      showCollisionArea: false,
     );
   }
 }

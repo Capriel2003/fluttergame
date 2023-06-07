@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/widgets.dart';
 
 class PlayerSpriteSheet {
   static Future<SpriteAnimation> get heroIdleLeft => SpriteAnimation.load(
@@ -41,11 +42,47 @@ class PlayerSpriteSheet {
         ),
       );
 
+  //Movimentação para todos os lados do Player
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(
         idleLeft: PlayerSpriteSheet.heroIdleLeft,
         idleRight: PlayerSpriteSheet.heroIdleRight,
         runLeft: PlayerSpriteSheet.heroRunLeft,
         runRight: PlayerSpriteSheet.heroRunRight,
+      );
+
+  static Future<SpriteAnimation> get attackLeft => SpriteAnimation.load(
+        'attacks/attack_effect_left.png',
+        SpriteAnimationData.sequenced(
+          amount: 3,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+
+  static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
+        'attacks/attack_effect_right.png',
+        SpriteAnimationData.sequenced(
+          amount: 3,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+  static Future<SpriteAnimation> get attackTop => SpriteAnimation.load(
+        'attacks/attack_effect_top.png',
+        SpriteAnimationData.sequenced(
+          amount: 3,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+
+  static Future<SpriteAnimation> get attackBottom => SpriteAnimation.load(
+        'attacks/attack_effect_bottom.png',
+        SpriteAnimationData.sequenced(
+          amount: 3,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
       );
 }
