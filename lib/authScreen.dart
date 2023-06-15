@@ -18,13 +18,18 @@ class AuthScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-        // color: Color.fromRGBO(41, 205, 0, 0.512), //colocar a imagem
+              // final widget = [
+              //   Opacity(
+              //     opacity: 10.0,
+              //     child: DecorationImage(Colors.blue),
+              //   ),
+              // ],
         margin: EdgeInsets.all(0.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
 
-            children: [//foto tamarutaca
+            children: [
               const Column(  
                 //  style: TextStyle(fontSize: 25.0),
                 children: [
@@ -32,6 +37,7 @@ class AuthScreen extends StatelessWidget {
                     style:TextStyle(
                       fontSize: 20.0,
                       fontFamily: 'PC Senior', 
+                      color: Colors.black,
                     ),
                   ),
                 ],
