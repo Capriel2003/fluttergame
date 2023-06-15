@@ -12,7 +12,13 @@ class AuthScreen extends StatelessWidget {
         title: Text('Autenticação do Google'),
       ),
       body: Container(
-        color: Color.fromRGBO(41, 205, 0, 0.512), //colocar a imagem
+        decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/background-loading.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+        // color: Color.fromRGBO(41, 205, 0, 0.512), //colocar a imagem
         margin: EdgeInsets.all(0.0),
         child: Center(
           child: Column(
