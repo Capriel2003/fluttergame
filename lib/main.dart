@@ -1,6 +1,6 @@
 
 import 'package:flameteste/Home/homePage.dart';
-import 'package:flameteste/firebase_options.dart';
+import 'package:flameteste/firebaseOptions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../services/auth_services.dart';
+import '../services/authServices.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -25,6 +25,19 @@ class HomePage extends StatelessWidget {
             color: Colors.white.withOpacity(0.8), // Opacidade de 80%
             colorBlendMode: BlendMode.modulate,
           ),
+
+          // Botão de logout
+      Positioned(
+        top: 30, // ajuste conforme necessário
+        left: 30, // ajuste conforme necessário
+        child: IconButton(
+          icon: Icon(Icons.logout), 
+          onPressed: () async {
+            await authService.signOut();
+            Navigator.pushReplacementNamed(context, '/auth');
+          },
+        ),
+      ),
 
           // Resto dos widgets
           Center(
@@ -144,26 +157,37 @@ class HomePage extends StatelessWidget {
                         ),
                         // Foto do usuário
                         StreamBuilder<User?>(
-                          stream: authService
-                              .onAuthStateChanged, // Escuta as mudanças no estado de autenticação
-                          builder: (BuildContext context,
-                              AsyncSnapshot<User?> snapshot) {
-                            if (snapshot.hasData) {
-                              // Se o usuário está logado, mostra a foto dele usando o método getProfileImage()
-                              return authService.getProfileImage();
-                            } else {
-                              // Se o usuário não está logado, mostra um ícone de pessoa que é um botão
-                              return GestureDetector(
-                                onTap: () {
-                                  // Navega para a página /auth e substitui a HomePage
-                                  Navigator.pushReplacementNamed(context, '/auth');
-                                },
-                                child: Icon(Icons.person,
-                                    color: Colors.white, size: 30),
-                              );
-                            }
-                          },
-                        ),
+  stream: authService
+      .onAuthStateChanged, // Escuta as mudanças no estado de autenticação
+  builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+    if (snapshot.hasData) {
+      // Se o usuário está logado, mostra a foto dele e o nome usando o método getProfileData()
+      return FutureBuilder(
+  future: authService.getProfileData(),
+  builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return CircularProgressIndicator(); // ou outro widget de carregamento
+    } else {
+      if (snapshot.hasError) {
+        return Text('Erro: ${snapshot.error}');
+      } else {
+        return snapshot.data!; // seu Widget com dados do perfil
+      }
+    }
+  },
+);
+    } else {
+      // Se o usuário não está logado, mostra um ícone de pessoa que é um botão
+      return GestureDetector(
+        onTap: () {
+          // Navega para a página /auth e substitui a HomePage
+          Navigator.pushReplacementNamed(context, '/auth');
+        },
+        child: Icon(Icons.person, color: Colors.white, size: 30),
+      );
+    }
+  },
+),
                       ],
                     ),
                   ),

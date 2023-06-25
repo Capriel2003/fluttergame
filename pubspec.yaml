@@ -31,6 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  cloud_firestore: any
+
   bonfire: ^2.12.2
   firebase_core: ^2.11.0
   firebase_database: any
