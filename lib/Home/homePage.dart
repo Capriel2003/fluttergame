@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -17,13 +19,16 @@ class HomePage extends StatelessWidget {
       body: Stack(
         children: [
           // Cenário de fundo
-          Image.asset(
-            'assets/images/background-loading.png',
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-            color: Colors.white.withOpacity(0.8), // Opacidade de 80%
-            colorBlendMode: BlendMode.modulate,
+          ImageFiltered(
+            imageFilter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/background-loading.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
 
           // Botão de logout
@@ -49,11 +54,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Logo do jogo
-                    Image.asset(
-                      'assets/images/logo-pixel.png',
-                      width: 100,
-                      height: 100,
-                    ),
+                    
 
                     Column(
                       children: [
@@ -64,7 +65,7 @@ class HomePage extends StatelessWidget {
                             fontSize: 48,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'PC Senior',
-                            color: Color(0xFF3567BD),
+                            color: Colors.black,
                             shadows: [
                               Shadow(
                                 offset: Offset(2.0, 2.0),
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
                             fontSize: 32,
                             fontFamily: 'PC Senior',
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFFBD3535),
+                            color: Colors.black,
                             shadows: [
                               Shadow(
                                 offset: Offset(2.0, 2.0),
@@ -91,6 +92,10 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.0, top: 0.0),
+                  child: Image.asset('assets/images/logo.png'),
+                ),
                       ],
                     )
                   ],

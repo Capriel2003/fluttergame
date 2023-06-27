@@ -31,9 +31,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key});
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +44,7 @@ class MyApp extends StatelessWidget {
         // Defina a rota da splash screen
         '/': (context) => SplashScreen(),
         // Defina a rota do jogo
-        '/auth': (context) => const AuthScreen(),
+        '/auth': (context) => AuthScreen(),
         '/home': (context) => HomePage(),
         '/game': (context) => const MyHomePage(),
       },

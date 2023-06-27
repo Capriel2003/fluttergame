@@ -16,42 +16,6 @@ class AuthService {
     return _firebaseAuth.currentUser; // Usa o getter currentUser
   }
 
-  Future<void> signInWithGoogle(BuildContext context) async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
-
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        idToken: googleAuth.idToken,
-        accessToken: googleAuth.accessToken,
-      );
-
-      final UserCredential userCredential =
-          await _firebaseAuth.signInWithCredential(credential);
-
-      final User? user = userCredential.user;
-
-      if (user != null) {
-        String? photoURL = user.photoURL;
-        String? displayName = user.displayName;
-
-        // Adicionando o usuário ao Firestore
-        await _db.collection('users').doc(user.uid).set({
-          'displayName': displayName,
-          'photoURL': photoURL,
-        });
-
-        print('Nome do usuário: $displayName');
-        print('URL da foto do usuário: $photoURL');
-      }
-
-      Navigator.pushReplacementNamed(context, '/home');
-    } catch (error) {
-      print('Erro ao autenticar com o Google: $error');
-    }
-  }
-
   Future<Widget> getProfileData() async {
     final User? user = _firebaseAuth.currentUser;
     final User currentUser = user!;

@@ -43,9 +43,8 @@ dependencies:
 
   #Google Icon
   font_awesome_flutter: any
+  flutter_svg: any
 
-  #State Management
-  provider: any
 
 dev_dependencies:
   flutter_test:
