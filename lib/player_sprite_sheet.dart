@@ -1,5 +1,4 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/widgets.dart';
 
 class PlayerSpriteSheet {
   static Future<SpriteAnimation> get heroIdleLeft => SpriteAnimation.load(
@@ -51,34 +50,8 @@ class PlayerSpriteSheet {
         runRight: PlayerSpriteSheet.heroRunRight,
       );
 
-  static Future<SpriteAnimation> get attackLeft => SpriteAnimation.load(
-        'attacks/attack_effect_left.png',
-        SpriteAnimationData.sequenced(
-          amount: 3,
-          stepTime: 0.1,
-          textureSize: Vector2(16, 16),
-        ),
-      );
-
-  static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
-        'attacks/attack_effect_right.png',
-        SpriteAnimationData.sequenced(
-          amount: 3,
-          stepTime: 0.1,
-          textureSize: Vector2(16, 16),
-        ),
-      );
-  static Future<SpriteAnimation> get attackTop => SpriteAnimation.load(
-        'attacks/attack_effect_top.png',
-        SpriteAnimationData.sequenced(
-          amount: 3,
-          stepTime: 0.1,
-          textureSize: Vector2(16, 16),
-        ),
-      );
-
-  static Future<SpriteAnimation> get attackBottom => SpriteAnimation.load(
-        'attacks/attack_effect_bottom.png',
+  static Future<SpriteAnimation> cutAnimation() => SpriteAnimation.load(
+        'attacks/atack_effect_top.png',
         SpriteAnimationData.sequenced(
           amount: 3,
           stepTime: 0.1,

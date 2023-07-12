@@ -44,7 +44,7 @@ class Orc extends SimpleEnemy with ObjectCollision {
       canvas,
       borderWidth: 2,
       height: 5,
-      align: Offset(0, -5),
+      align: const Offset(0, -5),
     );
 
     super.render(canvas);

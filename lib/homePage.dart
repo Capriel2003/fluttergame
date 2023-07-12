@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             JoystickAction(
               actionId: 1,
               color: Colors.red,
-              margin: EdgeInsets.all(50),
+              margin: const EdgeInsets.all(50),
             ),
           ]),
       map: WorldMapByTiled(
