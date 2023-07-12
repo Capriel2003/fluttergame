@@ -6,7 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../services/authServices.dart';
 
-
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
@@ -32,17 +31,17 @@ class HomePage extends StatelessWidget {
           ),
 
           // Botão de logout
-      Positioned(
-        top: 30, // ajuste conforme necessário
-        left: 30, // ajuste conforme necessário
-        child: IconButton(
-          icon: Icon(Icons.logout), 
-          onPressed: () async {
-            await authService.signOut();
-            Navigator.pushReplacementNamed(context, '/auth');
-          },
-        ),
-      ),
+          Positioned(
+            top: 30, // ajuste conforme necessário
+            left: 30, // ajuste conforme necessário
+            child: IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () async {
+                await authService.signOut();
+                Navigator.pushReplacementNamed(context, '/auth');
+              },
+            ),
+          ),
 
           // Resto dos widgets
           Center(
@@ -54,7 +53,6 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Logo do jogo
-                    
 
                     Column(
                       children: [
@@ -77,7 +75,7 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(width: 8),
                         Text(
-                          'the Game',
+                          'Game',
                           style: TextStyle(
                             fontSize: 32,
                             fontFamily: 'PC Senior',
@@ -92,10 +90,10 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20.0, top: 0.0),
-                  child: Image.asset('assets/images/logo.png'),
-                ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 20.0, top: 0.0),
+                          child: Image.asset('assets/images/logo.png'),
+                        ),
                       ],
                     )
                   ],
@@ -115,8 +113,7 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF34CB79),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -135,8 +132,7 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 52, 125, 203),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -146,8 +142,8 @@ class HomePage extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding:
-                        EdgeInsets.all(10), // Espaçamento entre a borda e os botões
+                    padding: EdgeInsets.all(
+                        10), // Espaçamento entre a borda e os botões
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -156,43 +152,49 @@ class HomePage extends StatelessWidget {
                           onPressed: () {
                             // Navegar para a página de opções
                           },
-                          icon:
-                              Icon(Icons.settings, color: Colors.white, size: 30),
+                          icon: Icon(Icons.settings,
+                              color: Colors.white, size: 30),
                           color: Color(0xFF3567BD),
                         ),
                         // Foto do usuário
                         StreamBuilder<User?>(
-  stream: authService
-      .onAuthStateChanged, // Escuta as mudanças no estado de autenticação
-  builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
-    if (snapshot.hasData) {
-      // Se o usuário está logado, mostra a foto dele e o nome usando o método getProfileData()
-      return FutureBuilder(
-  future: authService.getProfileData(),
-  builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting) {
-      return CircularProgressIndicator(); // ou outro widget de carregamento
-    } else {
-      if (snapshot.hasError) {
-        return Text('Erro: ${snapshot.error}');
-      } else {
-        return snapshot.data!; // seu Widget com dados do perfil
-      }
-    }
-  },
-);
-    } else {
-      // Se o usuário não está logado, mostra um ícone de pessoa que é um botão
-      return GestureDetector(
-        onTap: () {
-          // Navega para a página /auth e substitui a HomePage
-          Navigator.pushReplacementNamed(context, '/auth');
-        },
-        child: Icon(Icons.person, color: Colors.white, size: 30),
-      );
-    }
-  },
-),
+                          stream: authService
+                              .onAuthStateChanged, // Escuta as mudanças no estado de autenticação
+                          builder: (BuildContext context,
+                              AsyncSnapshot<User?> snapshot) {
+                            if (snapshot.hasData) {
+                              // Se o usuário está logado, mostra a foto dele e o nome usando o método getProfileData()
+                              return FutureBuilder(
+                                future: authService.getProfileData(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<Widget> snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return CircularProgressIndicator(); // ou outro widget de carregamento
+                                  } else {
+                                    if (snapshot.hasError) {
+                                      return Text('Erro: ${snapshot.error}');
+                                    } else {
+                                      return snapshot
+                                          .data!; // seu Widget com dados do perfil
+                                    }
+                                  }
+                                },
+                              );
+                            } else {
+                              // Se o usuário não está logado, mostra um ícone de pessoa que é um botão
+                              return GestureDetector(
+                                onTap: () {
+                                  // Navega para a página /auth e substitui a HomePage
+                                  Navigator.pushReplacementNamed(
+                                      context, '/auth');
+                                },
+                                child: Icon(Icons.person,
+                                    color: Colors.white, size: 30),
+                              );
+                            }
+                          },
+                        ),
                       ],
                     ),
                   ),

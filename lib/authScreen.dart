@@ -65,7 +65,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 SizedBox(width: 8),
                 Text(
-                  'the Game',
+                  'Game',
                   style: TextStyle(
                     fontSize: 32,
                     fontFamily: 'PC Senior',
@@ -86,67 +86,64 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 GoogleSignInButton(),
                 SizedBox(height: 25),
-                
-         
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Checkbox(
-                value: privacyPolicyAccepted,
-                onChanged: (value) {
-                  setState(() {
-                    privacyPolicyAccepted = value!;
-                  });
-                },
-              ),
-              RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style,
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'Li e aceito a ',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.black,
-                        fontFamily: 'PC Senior',
-                        fontWeight: FontWeight.bold,
-                      ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Checkbox(
+                      value: privacyPolicyAccepted,
+                      onChanged: (value) {
+                        setState(() {
+                          privacyPolicyAccepted = value!;
+                        });
+                      },
                     ),
-                    TextSpan(
-                      text: 'Política de Privacidade',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 228, 176, 42),
-                        fontFamily: 'PC Senior',
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          _showPrivacyPolicy(context);
-                        },
-                    ),
-                    TextSpan(
-                      text: '.',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.black,
-                        fontFamily: 'PC Senior',
-                        fontWeight: FontWeight.bold,
+                    RichText(
+                      text: TextSpan(
+                        style: DefaultTextStyle.of(context).style,
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Li e aceito a ',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: 'PC Senior',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Política de Privacidade',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color.fromARGB(255, 228, 176, 42),
+                              fontFamily: 'PC Senior',
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                _showPrivacyPolicy(context);
+                              },
+                          ),
+                          TextSpan(
+                            text: '.',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: 'PC Senior',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
               ],
             ),
           ),
         ],
       ),
     );
-
   }
 
   void _showPrivacyPolicy(BuildContext context) {
