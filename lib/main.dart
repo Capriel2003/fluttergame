@@ -1,4 +1,5 @@
 import 'package:flameteste/Home/homePage.dart';
+import 'package:flameteste/devScreen.dart';
 import 'package:flameteste/firebaseOptions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/auth': (context) => AuthScreen(),
         '/home': (context) => HomePage(),
         '/game': (context) => const MyHomePage(),
+        '/dev': (context) => const DevScreen(),
       },
     );
   }

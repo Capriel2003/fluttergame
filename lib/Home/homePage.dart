@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                 // Botão de desenvolvedores
                 ElevatedButton(
                   onPressed: () {
-                    // Navegar para a página de desenvolvedores
+                     Navigator.pushReplacementNamed(context, '/dev');
                   },
                   child: Text('Desenvolvedores',
                       style: TextStyle(
@@ -150,7 +150,7 @@ class HomePage extends StatelessWidget {
                         // Botão de opções
                         IconButton(
                           onPressed: () {
-                            // Navegar para a página de opções
+                            Navigator.pushReplacementNamed(context, '/game');
                           },
                           icon: Icon(Icons.settings,
                               color: Colors.white, size: 30),
