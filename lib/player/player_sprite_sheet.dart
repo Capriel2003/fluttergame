@@ -41,9 +41,20 @@ class PlayerSpriteSheet {
         ),
       );
 
+  static Future<SpriteAnimation> get stoped => SpriteAnimation.load(
+        'player/fHero.png',
+        SpriteAnimationData.sequenced(
+          amount: 4,
+          stepTime: 0.1,
+          textureSize: Vector2(24, 24),
+          texturePosition: Vector2(96, 48),
+        ),
+      );
+
   //Movimentação para todos os lados do Player
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(
+        idleUp: PlayerSpriteSheet.stoped,
         idleLeft: PlayerSpriteSheet.heroIdleLeft,
         idleRight: PlayerSpriteSheet.heroIdleRight,
         runLeft: PlayerSpriteSheet.heroRunLeft,
@@ -51,11 +62,11 @@ class PlayerSpriteSheet {
       );
 
   static Future<SpriteAnimation> cutAnimation() => SpriteAnimation.load(
-        'attacks/atack_effect_top.png',
+        'attacks/cut.png',
         SpriteAnimationData.sequenced(
-          amount: 3,
+          amount: 6,
           stepTime: 0.1,
-          textureSize: Vector2(16, 16),
+          textureSize: Vector2(32, 32),
         ),
       );
 }

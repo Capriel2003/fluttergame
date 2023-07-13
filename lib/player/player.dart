@@ -1,6 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flameteste/homePage.dart';
-import 'package:flameteste/player_sprite_sheet.dart';
+import 'package:flameteste/player/player_sprite_sheet.dart';
 
 class GameHero extends SimplePlayer with ObjectCollision {
   GameHero(Vector2 position)

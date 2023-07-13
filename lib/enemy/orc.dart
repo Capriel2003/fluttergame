@@ -1,8 +1,7 @@
 import 'dart:ui';
-
 import 'package:bonfire/bonfire.dart';
-import 'package:flameteste/homePage.dart';
-import 'package:flameteste/orc_sprite_sheet.dart';
+import 'package:flameteste/homepage/homePage.dart';
+import 'package:flameteste/enemy/orc_sprite_sheet.dart';
 
 class Orc extends SimpleEnemy with ObjectCollision {
   bool canMove = true;

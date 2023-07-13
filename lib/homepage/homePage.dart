@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flameteste/orc.dart';
+import 'package:flameteste/enemy/orc.dart';
+import 'package:flameteste/player/player.dart';
 import 'package:flutter/material.dart';
-import 'player.dart';
 
 const double tileSize = 40;
 
