@@ -2,10 +2,11 @@ import 'dart:developer';
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/homePage.dart';
 import 'package:flameteste/player/player_sprite_sheet.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-class OldMan extends SimpleNpc with TapGesture, ObjectCollision {
+class OldMan extends SimpleNpc with TapGesture {
   OldMan(Vector2 position)
       : super(
           position: position,
@@ -13,19 +14,7 @@ class OldMan extends SimpleNpc with TapGesture, ObjectCollision {
           speed: 180,
           initDirection: Direction.down,
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
-        ) {
-    setupCollision(
-      CollisionConfig(
-        collisions: [
-          CollisionArea.rectangle(
-            size: Vector2(25, 35),
-            align: Vector2(18, 27),
-          )
-        ],
-      ),
-    );
-  }
-
+        );
   @override
   void onTap() {
     bool flag = false;
@@ -43,21 +32,20 @@ class OldMan extends SimpleNpc with TapGesture, ObjectCollision {
 
   void _showDialogTalk() {
     gameRef.camera.moveToTargetAnimated(this, zoom: 2, finish: () {
-      TalkDialog.show(
-        gameRef.context,
-        [
-          _speak(text: 'Fala meu mano, como voce ta?', isHero: false),
-          _speak(text: 'To bem, e voce?', isHero: true),
-          _speak(
-              text:
-                  'To indo, mas fiquei sabendo que aqui ta cheio de inimigo, toma cuidado',
-              isHero: false),
-        ],
-        logicalKeyboardKeysToNext: [
-          LogicalKeyboardKey.space,
-          LogicalKeyboardKey.enter,
-        ],
-      );
+      TalkDialog.show(gameRef.context, [
+        _speak(text: 'Fala meu mano, como voce ta?', isHero: false),
+        _speak(text: 'To bem, e voce?', isHero: true),
+        _speak(
+            text:
+                'To indo, mas fiquei sabendo que aqui ta cheio de inimigo, toma cuidado',
+            isHero: false),
+      ], logicalKeyboardKeysToNext: [
+        LogicalKeyboardKey.space,
+        LogicalKeyboardKey.enter,
+      ], onClose: () {
+        gameRef.camera.moveToPlayerAnimated(zoom: 1);
+        removeFromParent();
+      });
     });
   }
 
@@ -68,9 +56,7 @@ class OldMan extends SimpleNpc with TapGesture, ObjectCollision {
         person: SizedBox(
             height: 200,
             width: 200,
-            child: isHero
-                ? GreenNinjaSpriteSheet.spriteSheet.getSprite(0, 0).asWidget()
-                : GreenNinjaSpriteSheet.spriteSheet.getSprite(1, 1).asWidget()),
+            child: isHero ? Icon(Icons.favorite) : Icon(Icons.favorite)),
         personSayDirection:
             isHero ? PersonSayDirection.LEFT : PersonSayDirection.RIGHT,
       );
