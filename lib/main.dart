@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/auth': (context) => AuthScreen(),
         '/home': (context) => HomePage(),
         '/game': (context) => const MyHomePage(),
-        '/dev': (context) => const DevScreen(),
+        '/dev': (context) => DeveloperPage(),
       },
     );
   }
