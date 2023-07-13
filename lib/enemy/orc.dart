@@ -2,15 +2,16 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/homePage.dart';
 import 'package:flameteste/enemy/orc_sprite_sheet.dart';
+import 'package:flameteste/npc/old_man.dart';
+
+bool canMove = false;
 
 class Orc extends SimpleEnemy with ObjectCollision {
-  bool canMove = true;
-
   Orc(Vector2 position)
       : super(
           position: position,
           size: Vector2.all(62),
-          speed: 140,
+          speed: 100,
           animation: OrcSpriteSheet.simpleDirectionAnimation,
         ) {
     setupCollision(
@@ -30,10 +31,9 @@ class Orc extends SimpleEnemy with ObjectCollision {
     if (canMove) {
       seeAndMoveToPlayer(
         closePlayer: (player) {},
-        radiusVision: 3 * tileSize,
+        radiusVision: 1024,
       );
     }
-
     super.update(dt);
   }
 

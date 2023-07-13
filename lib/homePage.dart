@@ -3,6 +3,7 @@ import 'package:flameteste/enemy/orc.dart';
 import 'package:flameteste/npc/old_man.dart';
 import 'package:flameteste/player/player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 const double tileSize = 40;
 
@@ -14,16 +15,24 @@ class HomePage extends StatelessWidget {
     return BonfireWidget(
       autofocus: true,
       joystick: Joystick(
-          directional: JoystickDirectional(
+        directional: JoystickDirectional(
+          color: Colors.red,
+        ),
+        actions: [
+          JoystickAction(
+            actionId: 1,
             color: Colors.red,
+            margin: const EdgeInsets.all(50),
           ),
-          actions: [
-            JoystickAction(
-              actionId: 1,
-              color: Colors.red,
-              margin: const EdgeInsets.all(50),
-            ),
-          ]),
+        ],
+        keyboardConfig: KeyboardConfig(
+          keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows,
+          acceptedKeys: [
+            LogicalKeyboardKey.numpadEnter,
+            LogicalKeyboardKey.numpad0,
+          ],
+        ),
+      ),
       map: WorldMapByTiled(
         'map/island.json',
         objectsBuilder: {

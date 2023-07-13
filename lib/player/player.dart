@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/player/player_sprite_sheet.dart';
+import 'package:flutter/services.dart';
 
 class GameHero extends SimplePlayer with ObjectCollision {
   GameHero(Vector2 position)
@@ -23,7 +24,8 @@ class GameHero extends SimplePlayer with ObjectCollision {
 
   @override
   void joystickAction(JoystickActionEvent event) {
-    if (event.event == ActionEvent.DOWN && event.id == 1) {
+    if (event.event == ActionEvent.DOWN && event.id == 1 ||
+        event.id == LogicalKeyboardKey.numpad0.keyId) {
       _executeAttack();
     }
     super.joystickAction(event);

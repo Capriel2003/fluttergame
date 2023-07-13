@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:bonfire/bonfire.dart';
+import 'package:flameteste/enemy/orc.dart';
+import 'package:flameteste/enemy/orc_sprite_sheet.dart';
 import 'package:flameteste/homePage.dart';
 import 'package:flameteste/player/player_sprite_sheet.dart';
 import 'package:flutter/material.dart';
@@ -17,17 +19,7 @@ class OldMan extends SimpleNpc with TapGesture {
         );
   @override
   void onTap() {
-    bool flag = false;
-    log("colidiu");
-    seePlayer(
-      observed: (player) {
-        flag = true;
-      },
-      radiusVision: 3 * tileSize,
-    );
-    if (flag) {
-      _showDialogTalk();
-    }
+    _showDialogTalk();
   }
 
   void _showDialogTalk() {
@@ -45,6 +37,7 @@ class OldMan extends SimpleNpc with TapGesture {
       ], onClose: () {
         gameRef.camera.moveToPlayerAnimated(zoom: 1);
         removeFromParent();
+        canMove = true;
       });
     });
   }
