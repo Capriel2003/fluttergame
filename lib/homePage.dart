@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/enemy/orc.dart';
+import 'package:flameteste/npc/old_man.dart';
 import 'package:flameteste/player/player.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,7 @@ class HomePage extends StatelessWidget {
         'map/island.json',
         objectsBuilder: {
           'orc': (properties) => Orc(properties.position),
+          'old_man': (properties) => OldMan(properties.position),
         },
         forceTileSize: Vector2.all(tileSize),
       ),

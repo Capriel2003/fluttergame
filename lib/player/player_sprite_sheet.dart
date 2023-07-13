@@ -70,3 +70,16 @@ class PlayerSpriteSheet {
         ),
       );
 }
+
+class GreenNinjaSpriteSheet {
+  static Future<void> load() async {
+    final image = await Flame.images.load("player/green_ninja.png");
+    spriteSheet = SpriteSheet.fromColumnsAndRows(
+      image: image,
+      columns: 4,
+      rows: 7,
+    );
+  }
+
+  static late SpriteSheet spriteSheet;
+}
