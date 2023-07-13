@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flameteste/homepage/homePage.dart';
+import 'package:flameteste/homePage.dart';
 import 'package:flameteste/player/player_sprite_sheet.dart';
 
 class OldMan extends SimplePlayer with ObjectCollision {
