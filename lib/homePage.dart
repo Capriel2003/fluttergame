@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/enemy/orc.dart';
+import 'package:flameteste/interface/player_interface.dart';
 import 'package:flameteste/npc/old_man.dart';
 import 'package:flameteste/player/player.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,14 @@ class HomePage extends StatelessWidget {
         forceTileSize: Vector2.all(tileSize),
       ),
       player: GameHero(Vector2(18 * tileSize, 14 * tileSize)),
+      overlayBuilderMap: {
+        PlayerInterface.overlayKey: (context, game) => PlayerInterface(
+              game: game,
+            )
+      },
+      initialActiveOverlays: const [
+        PlayerInterface.overlayKey,
+      ],
       showCollisionArea: false,
     );
   }

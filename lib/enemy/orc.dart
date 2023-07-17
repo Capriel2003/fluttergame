@@ -3,6 +3,8 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/homePage.dart';
 import 'package:flameteste/enemy/orc_sprite_sheet.dart';
 import 'package:flameteste/npc/old_man.dart';
+import 'package:flameteste/player/player.dart';
+import 'package:flameteste/player/player_sprite_sheet.dart';
 
 bool canMove = false;
 
@@ -30,7 +32,9 @@ class Orc extends SimpleEnemy with ObjectCollision {
   void update(double dt) {
     if (canMove) {
       seeAndMoveToPlayer(
-        closePlayer: (player) {},
+        closePlayer: (player) {
+          _executeAttack();
+        },
         radiusVision: 1024,
       );
     }
@@ -51,7 +55,23 @@ class Orc extends SimpleEnemy with ObjectCollision {
 
   @override
   void die() {
-    removeFromParent();
+    if (lastDirectionHorizontal == Direction.left) {
+      animation?.playOnce(
+        OrcSpriteSheet.dieLeft,
+        runToTheEnd: true,
+        onFinish: () {
+          removeFromParent();
+        },
+      );
+    } else {
+      animation?.playOnce(
+        OrcSpriteSheet.dieRight,
+        runToTheEnd: true,
+        onFinish: () {
+          removeFromParent();
+        },
+      );
+    }
     super.die();
   }
 
@@ -76,5 +96,16 @@ class Orc extends SimpleEnemy with ObjectCollision {
       );
     }
     super.receiveDamage(attacker, damage, identify);
+  }
+
+  void _executeAttack() {
+    simpleAttackMelee(
+      damage: 20,
+      size: size,
+      animationRight: PlayerSpriteSheet.cutAnimation(),
+      //animationLeft: PlayerSpriteSheet.attackLeft,
+      //animationTop: PlayerSpriteSheet.attackTop,
+      //animationBottom: PlayerSpriteSheet.attackBottom,
+    );
   }
 }

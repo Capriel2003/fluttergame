@@ -3,6 +3,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/enemy/orc.dart';
 import 'package:flameteste/enemy/orc_sprite_sheet.dart';
 import 'package:flameteste/homePage.dart';
+import 'package:flameteste/npc/old_man_sprite_sheet.dart';
 import 'package:flameteste/player/player_sprite_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,10 +13,10 @@ class OldMan extends SimpleNpc with TapGesture {
   OldMan(Vector2 position)
       : super(
           position: position,
-          size: Vector2.all(62),
+          size: Vector2.all(90),
           speed: 180,
           initDirection: Direction.down,
-          animation: PlayerSpriteSheet.simpleDirectionAnimation,
+          animation: OldManSpriteSheet.simpleDirectionAnimation,
         );
   @override
   void onTap() {

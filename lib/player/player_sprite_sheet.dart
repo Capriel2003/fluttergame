@@ -41,20 +41,49 @@ class PlayerSpriteSheet {
         ),
       );
 
-  static Future<SpriteAnimation> get stoped => SpriteAnimation.load(
+  static Future<SpriteAnimation> get receiveDamageRight => SpriteAnimation.load(
+        'player/fHero.png',
+        SpriteAnimationData.sequenced(
+          amount: 4,
+          stepTime: 0.15,
+          textureSize: Vector2(24, 24),
+          texturePosition: Vector2(0, 96),
+        ),
+      );
+
+  static Future<SpriteAnimation> get receiveDamageLeft => SpriteAnimation.load(
         'player/fHero.png',
         SpriteAnimationData.sequenced(
           amount: 4,
           stepTime: 0.1,
           textureSize: Vector2(24, 24),
-          texturePosition: Vector2(96, 48),
+          texturePosition: Vector2(96, 96),
+        ),
+      );
+
+  static Future<SpriteAnimation> get dieRight => SpriteAnimation.load(
+        'player/fHero.png',
+        SpriteAnimationData.sequenced(
+          amount: 4,
+          stepTime: 0.15,
+          textureSize: Vector2(24, 24),
+          texturePosition: Vector2(0, 120),
+        ),
+      );
+
+  static Future<SpriteAnimation> get dieLeft => SpriteAnimation.load(
+        'player/fHero.png',
+        SpriteAnimationData.sequenced(
+          amount: 4,
+          stepTime: 0.1,
+          textureSize: Vector2(24, 24),
+          texturePosition: Vector2(96, 120),
         ),
       );
 
   //Movimentação para todos os lados do Player
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(
-        idleUp: PlayerSpriteSheet.stoped,
         idleLeft: PlayerSpriteSheet.heroIdleLeft,
         idleRight: PlayerSpriteSheet.heroIdleRight,
         runLeft: PlayerSpriteSheet.heroRunLeft,
