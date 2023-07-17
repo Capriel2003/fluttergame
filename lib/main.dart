@@ -12,14 +12,13 @@ import 'authScreen.dart';
 
 
 void main() async {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ]);
 
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const MyApp());
 }
@@ -37,9 +36,8 @@ class MyApp extends StatelessWidget {
       // Defina a rota inicial como a splash screen
       initialRoute: '/',
       routes: {
-        // Defina a rota da splash screen
+
         '/': (context) => SplashScreen(),
-        // Defina a rota do jogo
         '/auth': (context) => AuthScreen(),
         '/home': (context) => HomePage(),
         '/game': (context) => const Game(),

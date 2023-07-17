@@ -45,6 +45,7 @@ dependencies:
   font_awesome_flutter: any
   flutter_svg: any
 
+  url_launcher: any
 
 dev_dependencies:
   flutter_test:

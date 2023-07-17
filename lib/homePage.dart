@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Cenário de fundo
+
           ImageFiltered(
             imageFilter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
             child: Container(
@@ -29,10 +29,10 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // Botão de logout
+   
           Positioned(
-            top: 30, // ajuste conforme necessário
-            left: 30, // ajuste conforme necessário
+            top: 30, 
+            left: 30, 
             child: IconButton(
               icon: Icon(Icons.logout),
               onPressed: () async {
@@ -42,24 +42,24 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // Resto dos widgets
+       
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Logo e título do jogo
+           
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Logo do jogo
+          
 
                     Column(
                       children: [
-                        // Título do jogo
+ 
                         Text(
                           'Tamarutaca',
                           style: TextStyle(
-                            fontSize: 48,
+                            fontSize: 32,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'PC Senior',
                             color: Colors.black,
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                         Text(
                           'Game',
                           style: TextStyle(
-                            fontSize: 32,
+                            fontSize: 19,
                             fontFamily: 'PC Senior',
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -97,9 +97,9 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
-                // Botões de entrar e desenvolvedores
+  
                 SizedBox(height: 20),
-                // Botão de jogar
+      
                 ElevatedButton.icon(
                   onPressed: () async {
                     Navigator.pushReplacementNamed(context, '/game');
@@ -137,12 +137,12 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Botões de opções e foto do usuário
+               
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: EdgeInsets.all(
-                        10), // Espaçamento entre a borda e os botões
+                        10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -155,14 +155,14 @@ class HomePage extends StatelessWidget {
                               color: Colors.white, size: 30),
                           color: Color(0xFF3567BD),
                         ),
-                        // Foto do usuário
+                      
                         StreamBuilder<User?>(
                           stream: authService
-                              .onAuthStateChanged, // Escuta as mudanças no estado de autenticação
+                              .onAuthStateChanged, 
                           builder: (BuildContext context,
                               AsyncSnapshot<User?> snapshot) {
                             if (snapshot.hasData) {
-                              // Se o usuário está logado, mostra a foto dele e o nome usando o método getProfileData()
+                            
                               return FutureBuilder(
                                 future: authService.getProfileData(),
                                 builder: (BuildContext context,
@@ -175,16 +175,16 @@ class HomePage extends StatelessWidget {
                                       return Text('Erro: ${snapshot.error}');
                                     } else {
                                       return snapshot
-                                          .data!; // seu Widget com dados do perfil
+                                          .data!; 
                                     }
                                   }
                                 },
                               );
                             } else {
-                              // Se o usuário não está logado, mostra um ícone de pessoa que é um botão
+                          
                               return GestureDetector(
                                 onTap: () {
-                                  // Navega para a página /auth e substitui a HomePage
+                        
                                   Navigator.pushReplacementNamed(
                                       context, '/auth');
                                 },

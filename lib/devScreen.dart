@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'dart:ui';
 
 class DeveloperPage extends StatefulWidget {
@@ -10,6 +12,19 @@ class DeveloperPage extends StatefulWidget {
 }
 
 class _DeveloperPageState extends State<DeveloperPage> {
+
+  void _launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+    );
+  } else {
+    throw 'Não foi possível abrir $url';
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +59,7 @@ class _DeveloperPageState extends State<DeveloperPage> {
                 Text(
                   'Desenvolvedores',
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'PC Senior',
                     color: Colors.black,
@@ -57,32 +72,32 @@ class _DeveloperPageState extends State<DeveloperPage> {
                     Column(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/autores/gustavo.png'),
+                          radius: 20,
+                          backgroundImage: AssetImage('assets/images/autores/gustavo.png'),
                         ),
                         Text('Gustavo',
-                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 24)),
+                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 12)),
                             Padding(padding: EdgeInsets.only(top: 10)),
                       ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.grey, // Defina a cor de fundo padrão para o GitHub
+      Colors.grey, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do GitHub
+ 
   },
   child: Row(
     children: [
-      Image.asset('assets/images/github.png', height: 24),
+      Image.asset('assets/images/github.png', height: 23),
       SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
       Text(
-        'GitHub',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
@@ -98,26 +113,26 @@ ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.blue, // Defina a cor de fundo padrão para o LinkedIn
+      Colors.blue, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do LinkedIn
+  
   },
   child: Row(
     children: [
-      Image.asset('assets/images/linkedin.png', height: 24),
+      Image.asset('assets/images/linkedin.png', height: 23),
       SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
       Text(
-        'LinkedIn',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
-          color: Colors.white, // Defina a cor do texto conforme desejado
+          color: Colors.white, 
         ),
       ),
     ],
@@ -129,36 +144,35 @@ ElevatedButton(
                     Column(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/autores/natan.png'),
+                          radius: 20,
+                          backgroundImage: AssetImage('assets/images/autores/natan.png'),
                         ),
                         Text('Natan',
-                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 24)),
+                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 12)),
                         Padding(padding: EdgeInsets.only(top: 10)),
                       ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.grey, // Defina a cor de fundo padrão para o GitHub
+      Colors.grey, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do GitHub
   },
   child: Row(
     children: [
-      Image.asset('assets/images/github.png', height: 24),
-      SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
+      Image.asset('assets/images/github.png', height: 23),
+      SizedBox(width: 8), 
       Text(
-        'GitHub',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
-          color: Colors.white, // Defina a cor do texto conforme desejado
+          color: Colors.white, 
         ),
       ),
     ],
@@ -170,26 +184,26 @@ ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.blue, // Defina a cor de fundo padrão para o LinkedIn
+      Colors.blue, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do LinkedIn
+    _launchURL('https://www.linkedin.com/in/natan-vaz/');
   },
   child: Row(
     children: [
-      Image.asset('assets/images/linkedin.png', height: 24),
+      Image.asset('assets/images/linkedin.png', height: 23),
       SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
       Text(
-        'LinkedIn',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
-          color: Colors.white, // Defina a cor do texto conforme desejado
+          color: Colors.white, 
         ),
       ),
     ],
@@ -200,36 +214,36 @@ ElevatedButton(
                     Column(
                       children: <Widget>[
                         CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/autores/gabriel.png'),
+                          radius: 20,
+                          backgroundImage: AssetImage('assets/images/autores/gabriel.png'),
                         ),
                         Text('Gabriel',
-                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 24)),
+                            style: TextStyle(fontFamily: 'PC Senior', fontSize: 12)),
                         Padding(padding: EdgeInsets.only(top: 10)),
                       ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.grey, // Defina a cor de fundo padrão para o GitHub
+      Colors.grey, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do GitHub
+    
   },
   child: Row(
     children: [
-      Image.asset('assets/images/github.png', height: 24),
-      SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
+      Image.asset('assets/images/github.png', height: 23),
+      SizedBox(width: 8), 
       Text(
-        'GitHub',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
-          color: Colors.white, // Defina a cor do texto conforme desejado
+          color: Colors.white, 
         ),
       ),
     ],
@@ -241,26 +255,26 @@ ElevatedButton(
   style: ButtonStyle(
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // Ajuste o valor para arredondar os cantos conforme desejado
+        borderRadius: BorderRadius.circular(10.0), 
       ),
     ),
     backgroundColor: MaterialStateProperty.all<Color>(
-      Colors.blue, // Defina a cor de fundo padrão para o LinkedIn
+      Colors.blue, 
     ),
   ),
   onPressed: () {
-    // Aqui vai o link para o perfil do LinkedIn
+   
   },
   child: Row(
     children: [
-      Image.asset('assets/images/linkedin.png', height: 24),
-      SizedBox(width: 8), // Ajuste o espaçamento entre a imagem e o texto conforme necessário
+      Image.asset('assets/images/linkedin.png', height: 23),
+      SizedBox(width: 8), 
       Text(
-        'LinkedIn',
+        '',
         style: TextStyle(
           fontFamily: 'PC Senior',
           fontSize: 12,
-          color: Colors.white, // Defina a cor do texto conforme desejado
+          color: Colors.white, 
         ),
       ),
     ],

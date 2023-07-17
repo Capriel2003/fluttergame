@@ -18,15 +18,15 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
     )..repeat(reverse: true);
     _animation = Tween<double>(begin: 0, end: 3).animate(_controller);
-    // Chame a função que espera 5 segundos antes de mudar para a tela do jogo
+
     _navigateToGame();
   }
 
   Future<void> _navigateToGame() async {
-    // Aguarde 5 segundos
+    
     await Future.delayed(const Duration(seconds: 9));
 
-    // Navegue para a tela do jogo
+
     Navigator.of(context).pushNamed('/home');
   }
 

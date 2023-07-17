@@ -59,8 +59,8 @@ class OldMan extends SimpleNpc with TapGesture {
             height: 200,
             width: 200,
             child: isHero
-                ? Image.asset('images/autores/natan.png')
-                : Image.asset('images/autores/gabriel.png')),
+                ? Image.asset('assets/images/autores/natan.png')
+                : Image.asset('assets/images/autores/gabriel.png')),
         personSayDirection:
             isHero ? PersonSayDirection.LEFT : PersonSayDirection.RIGHT,
       );

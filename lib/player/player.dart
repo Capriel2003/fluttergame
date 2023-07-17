@@ -39,9 +39,6 @@ class GameHero extends SimplePlayer with ObjectCollision {
       withPush: false,
       size: size,
       animationRight: PlayerSpriteSheet.cutAnimation(),
-      //animationLeft: PlayerSpriteSheet.attackLeft,
-      //animationTop: PlayerSpriteSheet.attackTop,
-      //animationBottom: PlayerSpriteSheet.attackBottom,
     );
   }
 

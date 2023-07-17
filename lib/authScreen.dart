@@ -50,7 +50,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 Text(
                   'Tamarutaca',
                   style: TextStyle(
-                    fontSize: 48,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'PC Senior',
                     color: Colors.black,
@@ -67,7 +67,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 Text(
                   'Game',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 16,
                     fontFamily: 'PC Senior',
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -104,7 +104,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           TextSpan(
                             text: 'Li e aceito a ',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 6,
                               color: Colors.black,
                               fontFamily: 'PC Senior',
                               fontWeight: FontWeight.bold,
@@ -113,7 +113,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           TextSpan(
                             text: 'Política de Privacidade',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 6,
                               color: Color.fromARGB(255, 228, 176, 42),
                               fontFamily: 'PC Senior',
                               fontWeight: FontWeight.bold,
