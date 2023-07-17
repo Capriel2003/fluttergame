@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/enemy/orc.dart';
+import 'package:flameteste/interface/game_controller.dart';
 import 'package:flameteste/interface/player_interface.dart';
 import 'package:flameteste/npc/old_man.dart';
 import 'package:flameteste/player/player.dart';
@@ -8,9 +9,15 @@ import 'package:flutter/services.dart';
 
 const double tileSize = 40;
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Game extends StatefulWidget {
+  final int stage;
+  const Game({Key? key, this.stage = 1}) : super(key: key);
 
+  @override
+  HomePage createState() => HomePage();
+}
+
+class HomePage extends State<Game> {
   @override
   Widget build(BuildContext context) {
     return BonfireWidget(
@@ -50,6 +57,9 @@ class HomePage extends StatelessWidget {
       },
       initialActiveOverlays: const [
         PlayerInterface.overlayKey,
+      ],
+      components: [
+        MyGameController(widget.stage),
       ],
       showCollisionArea: false,
     );

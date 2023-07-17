@@ -9,7 +9,7 @@ class GameHero extends SimplePlayer with ObjectCollision {
           position: position,
           size: Vector2.all(62),
           speed: 180,
-          life: 250,
+          life: 50,
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
         ) {
     setupCollision(

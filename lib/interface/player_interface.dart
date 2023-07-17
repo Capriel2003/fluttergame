@@ -1,28 +1,30 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'dart:async' as async;
 
 class PlayerInterface extends StatefulWidget {
   static const overlayKey = 'playerInterface';
+
   final BonfireGame game;
   const PlayerInterface({Key? key, required this.game}) : super(key: key);
 
   @override
-  State<PlayerInterface> createState() => PlayerInterfaceState();
+  _PlayerInterfaceState createState() => _PlayerInterfaceState();
 }
 
-class PlayerInterfaceState extends State<PlayerInterface> {
+class _PlayerInterfaceState extends State<PlayerInterface> {
   double life = 0;
+
   final double widthMax = 100;
   double widthCurrent = 100;
 
   late async.Timer _lifeTime;
-
   @override
   void initState() {
-    _lifeTime =
-        async.Timer.periodic(const Duration(milliseconds: 100), _verifyLife);
+    _lifeTime = async.Timer.periodic(
+      const Duration(milliseconds: 100),
+      _verifyLife,
+    );
     super.initState();
   }
 
@@ -34,41 +36,44 @@ class PlayerInterfaceState extends State<PlayerInterface> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-        Stack(
-          children: [
-            Container(
-              width: widthCurrent,
-              height: 20,
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.white),
-              ),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Row(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
             ),
-            Container(
-              width: widthMax,
-              height: 20,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.white),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Stack(
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                width: widthCurrent,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(5),
+                ),
               ),
-            )
-          ],
-        ),
-      ],
+              Container(
+                width: widthMax,
+                height: 20,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
