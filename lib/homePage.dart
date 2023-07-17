@@ -149,7 +149,7 @@ class HomePage extends StatelessWidget {
                         // Botão de opções
                         IconButton(
                           onPressed: () {
-                            Navigator.pushReplacementNamed(context, '/game');
+                            Navigator.pushReplacementNamed(context, '');
                           },
                           icon: Icon(Icons.settings,
                               color: Colors.white, size: 30),
