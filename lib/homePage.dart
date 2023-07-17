@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../services/authServices.dart';
+import 'services/authServices.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  // Cria uma instância do AuthService
   final AuthService authService = AuthService();
 
   @override

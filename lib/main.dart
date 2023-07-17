@@ -1,14 +1,15 @@
-import 'package:flameteste/Home/homePage.dart';
+import 'package:flameteste/gameScreen.dart';
 import 'package:flameteste/devScreen.dart';
 import 'package:flameteste/firebaseOptions.dart';
+import 'package:flameteste/homePage.dart';
+import 'package:flameteste/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
 import 'authScreen.dart';
-import 'gamePage.dart';
-import 'splashScreen.dart';
+
 
 void main() async {
   SystemChrome.setPreferredOrientations([
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tamarutaca Game',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         // Defina a rota do jogo
         '/auth': (context) => AuthScreen(),
         '/home': (context) => HomePage(),
-        '/game': (context) => const MyHomePage(),
+        '/game': (context) => const Game(),
         '/dev': (context) => DeveloperPage(),
       },
     );
