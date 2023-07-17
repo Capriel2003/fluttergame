@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:bonfire/bonfire.dart';
 import 'package:flameteste/enemy/orc.dart';
 import 'package:flameteste/enemy/orc_sprite_sheet.dart';
@@ -26,12 +27,19 @@ class OldMan extends SimpleNpc with TapGesture {
   void _showDialogTalk() {
     gameRef.camera.moveToTargetAnimated(this, zoom: 2, finish: () {
       TalkDialog.show(gameRef.context, [
-        _speak(text: 'Fala meu mano, como voce ta?', isHero: false),
-        _speak(text: 'To bem, e voce?', isHero: true),
+        _speak(text: 'Olá pequeno gafanhoto, como voce ta?', isHero: false),
+        _speak(text: 'To bem... mas quem é voce?', isHero: true),
         _speak(
             text:
-                'To indo, mas fiquei sabendo que aqui ta cheio de inimigo, toma cuidado',
+                'Eu sou alguém que está aqui para te ajudar durante essa jornada',
             isHero: false),
+        _speak(text: 'Que jornada seria essa?', isHero: true),
+        _speak(
+            text:
+                'A partir de agora, diversos inimigos aparecerão em seu caminho, o seu papel será de acabar com eles...',
+            isHero: false),
+        _speak(text: 'Eu não to preparado pra isso...', isHero: true),
+        _speak(text: 'Te desejo sorte!', isHero: false),
       ], logicalKeyboardKeysToNext: [
         LogicalKeyboardKey.space,
         LogicalKeyboardKey.enter,
@@ -50,7 +58,9 @@ class OldMan extends SimpleNpc with TapGesture {
         person: SizedBox(
             height: 200,
             width: 200,
-            child: isHero ? Icon(Icons.favorite) : Icon(Icons.favorite)),
+            child: isHero
+                ? Image.asset('images/autores/natan.png')
+                : Image.asset('images/autores/gabriel.png')),
         personSayDirection:
             isHero ? PersonSayDirection.LEFT : PersonSayDirection.RIGHT,
       );
